@@ -1,37 +1,27 @@
 from datetime import date
 class Human():
-    def __init__(self, age = 18, drink = 'beer'):
-     self.age = age
-     self.drink = drink
+    favorite_drink = "beer"
 
-    def favorite_drink(self):
-      print(self.drink)
-
-    def age_permission(self):
+    def __init__ (self, age):
+        self.age = age
         if self.age < 18:
-            print('Human likes to drink juice')
-        else:
-            print("Human likes to drink beer")
+            self.favorite_drink = "juce"
 
-#class Worker(Human):
+class Worker(Human):
+  def __init__(self, age, drink, salery):
+        self.age = age
+        self.drink = drink
+        self.salery = salery
+        if self.age > 18 and self.salery > 1000:
+            self.drink = "whiskey"
 
-    #def __init__(self, age=18, drink='beer'):
-        #super().__init__(age, drink)
-        #self.salery = None
-
-    #def salery_info(self, salery= 1000, drink= 'whiskey'):
-
-        #if self.salery > 1000
-            #print('whiskey')
-        #else:
-            #print('beer')
-
-human1 = Human()
-#worker1 = Worker()
-print(human1.drink  + "це напій, який п'є людина")
-print(human1.favorite_drink())
-#print(worker1.salery_info())
-print(human1.age_permission())
+human1 = Human(18)
+worker1 = Worker(18, "whiskey", 1000)
+print(human1.favorite_drink)
+print(human1.age)
+print(human1)
+print(worker1.salery)
+print(worker1.drink)
 
 
 
