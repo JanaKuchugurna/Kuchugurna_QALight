@@ -1,50 +1,22 @@
-from typing import List
-fruits = ("banana", "Apple", "grape", "papaya", "Limone")
-i = 0
-while i < len(fruits):
-    print(fruits[i])
-    i = i+1
+# Робота з рядками: name ="John"greeting =f"Hello,{name}!"
+name = "John"
+greeting = f"Hello, {name} !"
+print(f"Hello, {name} !")
+# Робота з числами: x =10y = x +5 # 15
+#x = 10
+#y = x +5
+#print(y)
+x = 10
+y = 5
+x += y
+print(x)
 
-thisset = {"apple", "banana", "cherry"}
-mylist = ["kiwi", "orange"]
+# Робота зі списками: numbers = [1,2,3] numbers.append(4)# [1, 2, 3, 4]
+numbers = [1, 2, 3]
+numbers.append(4)
+print(numbers)
 
-thisset.update(mylist)
-
-print(thisset)
-
-
-
-#
-
-#i = 0
-#while i < len(fruits[i]):
-    #print(fruits[i])
-    #i = i + 1
-
-
-#for i in range(len(fruits)):
-    #print(fruits[i])
-
-#for x in fruits:
-    #print(x)
-
-
-
-#fruits.clear()
-#print(fruits)
-
-#del fruits[3]
-#print(fruits)
-#fruits.pop()
-#print(fruits)
-#fruits.remove("grape")
-#print(fruits)
-#vegetable = ["potatos", "carrot", "onions"]
-#fruits.extend(vegetable)
-#print(fruits)
-#fruits.insert(2, "kaki")
-#fruits.append("pear")
-#print(fruits)
-#fruits[1] = "orange"
-#print(fruits)
-#
+#Робота зі словниками: student = {"name":"Mary","grade":90} student["subject"] ="Math" # Додавання нового ключа
+student = {"name":"Mary", "grade":90}
+student['subject'] = 'Math'
+print(student)
