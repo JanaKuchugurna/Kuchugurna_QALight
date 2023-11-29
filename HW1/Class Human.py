@@ -5,7 +5,7 @@ class Human:
     favorite_drink = "beer"
 
     def __init__(self, age):
-        self.age = age
+        self.age = agegit
 
     def drink(self):
         if self.age < 18:

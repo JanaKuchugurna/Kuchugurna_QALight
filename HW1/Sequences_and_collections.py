@@ -32,7 +32,7 @@ for x in a:
     print(x)
 
 change_tuple = list(a)
-change_tuple[0] = 3*2
+change_tuple[0] += 2
 a = tuple(change_tuple)
 print(a)
 

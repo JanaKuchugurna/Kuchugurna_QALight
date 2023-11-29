@@ -13,3 +13,14 @@ my_str = "Мені дуже подобається вивчати пайтон! 
 # змінюємо та друкуємо рядок
 my_str = multiple_replace(my_str, replace_values)
 print(my_str)
+
+d = [1, 2][1]
+print(d)
+pow_products = input("Enter products: ")
+
+filtered = pow_products.replace(" ","")
+products = filtered.split(",")
+message = "\n".join(products)
+result = "\n".join(["products", message])
+print(result)
+
