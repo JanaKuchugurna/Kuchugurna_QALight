@@ -34,7 +34,7 @@ def test_button_text_color_changes(goto_dyn_prop_page):
         ec.presence_of_element_located((By.CSS_SELECTOR, 'button[id="colorChange"]')))
     initial_color = button_text_color.value_of_css_property('color')
     current_color = button_text_color.value_of_css_property('color')
-    assert initial_color == current_color, "Колір тексту на кнопці не був змінений"
+    assert initial_color != current_color, "Колір тексту на кнопці не був змінений"
 
 
 def test_button_appears(goto_dyn_prop_page):
