@@ -1,3 +1,5 @@
+import time
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -32,9 +34,18 @@ def test_button_text_color_changes(goto_dyn_prop_page):
     # button_text_color = driver.find_element(By.CSS_SELECTOR, 'button[id="colorChange"]')
     button_text_color = WebDriverWait(driver, 6).until(
         ec.presence_of_element_located((By.CSS_SELECTOR, 'button[id="colorChange"]')))
-    initial_color = button_text_color.value_of_css_property('color')
-    current_color = button_text_color.value_of_css_property('color')
-    assert initial_color != current_color, "Колір тексту на кнопці не був змінений"
+    initial_color = button_text_color.value_of_css_property('class')
+    time.sleep(5)
+    current_color = button_text_color.value_of_css_property('class')
+    assert initial_color != current_color and 'danger' in current_color
+
+def test_button_text_color_changes1(goto_dyn_prop_page):
+    driver = goto_dyn_prop_page
+    button_text_color = driver.find_element(By.ID, 'colorChange')
+    attr_text = button_text_color.get_attribute('class')
+    time.sleep(5)
+    fresh_attr_text = button_text_color.get_attribute('class')
+    assert attr_text != fresh_attr_text and 'danger' in fresh_attr_text
 
 
 def test_button_appears(goto_dyn_prop_page):

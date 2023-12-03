@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 @pytest.fixture()
 def get_chrome_driver():
     driver = webdriver.Chrome()
-    # driver.implicitly_wait(6)
+    driver.implicitly_wait(6)
     yield driver
     driver.quit()
 
@@ -24,7 +24,7 @@ def test_name_field(login_fields):
     full_name_field = driver.find_element(By.XPATH, '//input[@id="userName"]')
     time.sleep(6)
     full_name_field.send_keys(login_user)
-    assert full_name_field.is_displayed()
+    assert full_name_field == login_user
 
 
 def test_password_field(login_fields):
