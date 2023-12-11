@@ -7,7 +7,8 @@ from selenium.webdriver import Chrome
 
 @pytest.fixture()
 def driver():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    # driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()

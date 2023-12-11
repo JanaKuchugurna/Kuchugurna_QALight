@@ -1,4 +1,4 @@
-from Kuchugurna_QALight.conftest_demoqa import driver
+from Kuchugurna_QALight.lecture_selenium.conftest import driver
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as EC
 
