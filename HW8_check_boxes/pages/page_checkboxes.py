@@ -1,12 +1,13 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
-from lecture_page_obj.locators.checkbox_locators import *
+from Kuchugurna_QALight.HW8_check_boxes.locators.checkbox_locators import EXPAND_COLLAPSE_BUTTON
 
 
 class PageCheckboxes:
     URL = 'https://demoqa.com/checkbox'
 
-    def __init__(self, driver):
+    def __init__(self, driver: WebDriver):
         self.__check_uncheck_label = None
         self.driver: WebDriver = driver
         self.expand_button_locator = EXPAND_COLLAPSE_BUTTON
@@ -16,7 +17,8 @@ class PageCheckboxes:
         self.driver.get(self.URL)
         return self
 
-    def __expand_or_collapse_folder(self, name, expand=True):  # приватний метод з двома підкресленнями щоб не показувалось в тестах
+    def __expand_or_collapse_folder(self, name,
+                                    expand=True):  # приватний метод з двома підкресленнями щоб не показувалось в тестах
         if expand:
             state = 'close'
         else:
@@ -26,10 +28,10 @@ class PageCheckboxes:
             element.click()
 
     def expand_folder(self, name):
-        self.expand_or_collapse_folder(name, expand=True)
+        self.__expand_or_collapse_folder(name, expand=True)
 
     def collapse_folder(self, name):
-        self.expand_or_collapse_folder(name, expand=False)
+        self.__expand_or_collapse_folder(name, expand=False)
 
     def check_folders(self, *names):
         self.__check_or_uncheck_folders(*names, check=True)
@@ -49,3 +51,4 @@ class PageCheckboxes:
                 else:
                     if _input.is_selected():
                         _label.cklick()
+    #def get_output_result(self):

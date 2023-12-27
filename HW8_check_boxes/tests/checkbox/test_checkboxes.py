@@ -5,12 +5,12 @@ from selenium.webdriver.remote.webdriver import WebDriver
 
 class TestCheckbox:
 
-    def test_1(self, chrome):
+    def test_1(self, driver):
         directories = ['Home', 'Documents', 'Office']
         targets_for_check = ['Public', 'Private']
         #targets_for_uncheck = ['Veu']
         driver: WebDriver = Chrome()
-        page = PageCheckboxes(chrome)
+        page = PageCheckboxes(driver)
         page.open()
         page.expand_folder(directories)
         page.check_folders(*targets_for_check)
