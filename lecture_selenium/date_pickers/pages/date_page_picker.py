@@ -12,6 +12,21 @@ from selenium.webdriver.support.select import Select
 class PageDatePicker:
     URL = 'https://demoqa.com/date-picker'
 
+    MONTHS = {
+        'January': 1,
+        'February': 2,
+        'March': 3,
+        'April': 4,
+        'May': 5,
+        'June': 6,
+        'July': 7,
+        'August': 8,
+        'September': 9,
+        'October': 10,
+        'November': 11,
+        'December': 12,
+    }
+
     def __init__(self, driver: WebDriver):
         self.driver = driver
         self.select_date_input = (By.ID, 'datePickerMonthYearInput')
@@ -37,7 +52,7 @@ class PageDatePicker:
         """
 
         :param selected_date: expected format --12/18/2023 where 12 is month, 18 is day, 2023 is year
-        like string '12/18/2023'
+        like string "12/18/2023"
         """
         month = selected_date.split('/')[0]
         try:
@@ -56,7 +71,7 @@ class PageDatePicker:
         self.open_date_picker()
         self.__set_month(month=month)
         # self.__set_day(day=day)
-        # self.__set_year(year=year)
+        self.__set_year(year=year)
 
     def __set_day_by_picker_with_scrolling(self, month: int | str, day: int, year: int):
         pass
@@ -74,29 +89,67 @@ class PageDatePicker:
             while target_year < self.get_current_year():
                 prev_button.click()
 
-    def scroll_to_target_month(self, target_month: int):
-        locator_button_prev = (By.XPATH, '//button[contains(@class, "previous")]')
-        locator_button_next = (By.XPATH, '//button[contains(@class, "next")]')
+    def click_next_prev_button(self, direction, count):
+        # locator_button_prev = (By.XPATH, '//button[contains(@class, "previous")]')
+        # locator_button_next = (By.XPATH, '//button[contains(@class, "next")]')
         prev_button = self.driver.find_element(*locator_button_prev)
         next_button = self.driver.find_element(*locator_button_next)
 
-        if target_month > self.get_current_month():
-            next_button.click()
+        if direction == 'next':
+            for _ in range(count):
+                next_button.click()
+        elif direction == 'previous':
+            for _ in range(count):
+                prev_button.click()
         else:
-            prev_button.click()
+            print("Direction is invalid")
+
+    def scroll_to_target_month_with_year(self, target_date):
+        # locator_button_prev = (By.XPATH, '//button[contains(@class, "previous")]')
+        # locator_button_next = (By.XPATH, '//button[contains(@class, "next")]')
+        # prev_button = self.driver.find_element(*locator_button_prev)
+        # next_button = self.driver.find_element(*locator_button_next)
+
+        target_year = int(target_date.split('/')[-1])
+        target_month = int(target_date.split('/')[0])
+        self.scroll_to_target_year(target_year)
+        current_month_in_picker_locator = (
+            By.XPATH, '//div[@class="react-datepicker__header"]/div[contains(@class,"current-month")]')
+        current_month = self.driver.find_element(*current_month_in_picker_locator).text.split(' ')[0]
+        if target_month > self.MONTHS[current_month]:
+            count = target_month - self.MONTHS[current_month]
+            self.click_next_prev_button(direction='next', count=count)
+        elif target_month < self.MONTHS[current_month]:
+            count = self.MONTHS[current_month] - target_month
+            self.click_on_next_prev_button(direction='previous', count=count)
+        else:
+            print("Can't scroll through months")
+            current_month = self.driver.find_element(*current_month_in_picker_locator).text.split(' ')[0]
+            print("Month to which we scrolled:", current_month)
         pass
 
     def get_current_year(self) -> int:
         current_year_in_picker_locator = (By.XPATH,
-                                          '//div[@class="react-datepicker__header"]/div[contains(@class, "current")]')
+                                          '//div[@class="react-datepicker__header"]/div[contains(@class,"current")]')
         current_year = int(self.driver.find_element(*current_year_in_picker_locator).text.split(' ')[1])
         return current_year
 
     def get_current_month(self) -> int:
         current_month_in_picker_locator = (By.XPATH,
-                                           '//div[@class="react-datepicker__header"]/div[contains(@class, "current")]')
+                                           '//div[@class="react-datepicker__header"]/div[contains(@class, "current-month")]')
         current_month = int(self.driver.find_element(*current_month_in_picker_locator).text.split(' ')[0])
         return current_month
+
+    def current_month_with_year(self):
+        current_month_in_picker_locator = '//div[@class="react-datepicker__header"]/div[contains(@class, "current-month")]'
+
+        if self.get_current_year() in range(1920, 2025):
+
+            current_month_with_year = self.driver.find_element(By.XPATH, current_month_in_picker_locator)
+            month_text = current_month_with_year.text.split(' ')[0]
+        else:
+            print('Year is not in range ')
+        return month_text
 
     def get_current_day(self) -> int:
         # date = 'Choose Tuesday, December 26th, 2023'

@@ -15,10 +15,10 @@ class TestDatePicker:
         # date = 'February/18/2023'
         # page.set_date_by_picker('February/18/2023'), f'//div[contains(@aria-label, "{date.split("/")[0]}")][contains(@aria-label, "{date.split("/")[1]}")][contains(@aria-label, "{date.split("/")[2]}")]'
         # page.set_date_by_picker('0/18/2023')
-        target_year = int(target_date.split('/')[-1])
-        page.scroll_to_target_year(target_year)
-        target_month = int(target_date.split('/')[1])
-        page.scroll_to_target_month(target_month)
+        #target_year = int(target_date.split('/')[-1])
+        #page.scroll_to_target_year(target_year)
+        target_month = int(target_date.split('/')[0])
+        page.scroll_to_target_month_with_year(target_month)
         # page.set_target_day()
         pass
 
@@ -33,7 +33,15 @@ class TestDatePicker:
         page = PageDatePicker(chrome)
         page.open()
         page.open_date_picker()
+        target_year = int(target_date.split('/')[-1])
+        page.scroll_to_target_year(target_year)
+        print(page.scroll_to_target_month_with_year())
 
-
-
+    def test_scroll_to_month(self, chrome):
+        target_date = '04/05/2019'
+        page = PageDatePicker(driver=chrome)
+        page.open()
+        page.open_date_picker()
+        target_month = int(target_date.split('/')[0])
+        page.scroll_to_target_month_with_year(target_month)
 

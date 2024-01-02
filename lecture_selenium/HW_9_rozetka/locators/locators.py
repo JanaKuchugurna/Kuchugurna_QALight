@@ -1,0 +1,5 @@
+first_locator = '//li[@class="pagination__item"]/a[contains(@class,"pagination__link pagination__link--active")]'
+#'//div[@class="pagination ng-star-inserted"]/a[contains(@class,"button button--gray")]'
+next_pag_locator = '//div[@class="pagination ng-star-inserted"]/a[contains(@title,"До наступної сторінки")]'
+previous_pag_locator = '//div[@class="pagination ng-star-inserted"]/a[contains(@title,"До попередньої сторінки")]'
+second_button_pag_locator = '//div[@class="pagination ng-star-inserted"]//a[contains(text(),"2")]'
