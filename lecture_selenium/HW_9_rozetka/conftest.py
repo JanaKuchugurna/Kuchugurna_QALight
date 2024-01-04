@@ -11,6 +11,7 @@ def driver():
     driver.quit()
 
 
-def open_website(driver):
+@pytest.fixture()
+def product_page_open(driver):
     driver.get("https://rozetka.com.ua/notebooks/c80004/")
     yield driver
