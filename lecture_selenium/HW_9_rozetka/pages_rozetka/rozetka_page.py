@@ -4,6 +4,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
+from Kuchugurna_QALight.lecture_selenium.HW_9_rozetka.locators import locators
 
 
 class ProductPage:

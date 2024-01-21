@@ -5,3 +5,4 @@ EXPAND_COLLAPSE_BUTTON = '//span[text()="{}"]//ancestor::span/button/*[contains(
 # variable = 'HELLO'
 # print(EXPAND_BUTTON.format(variable))
 OUTPUT_RESULT = (By.XPATH, "//span[@class='text-success']")
+CHECKED_ITEMS = (By.XPATH, 'svg[class="rct-icon rct-icon-check"]')

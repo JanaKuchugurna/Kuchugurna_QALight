@@ -1,16 +1,24 @@
+from asyncio import wait
+from telnetlib import EC
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webdriver import WebDriver
 
+from Kuchugurna_QALight.HW8_check_boxes.locators import checkbox_locators
 from Kuchugurna_QALight.HW8_check_boxes.locators.checkbox_locators import EXPAND_COLLAPSE_BUTTON
 
 
 class PageCheckboxes:
     URL = 'https://demoqa.com/checkbox'
 
+
     def __init__(self, driver: WebDriver):
         self.__check_uncheck_label = None
         self.driver: WebDriver = driver
         self.expand_button_locator = EXPAND_COLLAPSE_BUTTON
+
+        OUTPUT_RESULT = (By.XPATH, "//span[@class='text-success']")
+        CHECKED_ITEMS = (By.XPATH, 'svg[class="rct-icon rct-icon-check"]')
 
     def open(self):
         print(f'opening page: {self.URL}')
@@ -51,4 +59,12 @@ class PageCheckboxes:
                 else:
                     if _input.is_selected():
                         _label.cklick()
-    #def get_output_result(self):
+
+    # def elements_are_presence(self, locator, timeout=5):
+    #     return wait(self.__driver, timeout).until(EC.presence_of_all_elements_located(locator))
+
+    def get_checked_checkboxes(self):
+        pass
+
+    def get_output_result(self):
+        pass
