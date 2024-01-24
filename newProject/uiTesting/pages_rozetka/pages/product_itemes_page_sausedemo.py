@@ -9,7 +9,7 @@ class ProductPage:
         self.url = "https://www.saucedemo.com/v1/index.html"
         # self.inventory_separate_items = (By.XPATH, "//div[@class='inventory_item']")
         self.inventory_items_list = (By.XPATH, "//div[@class='inventory_list']")
-        sort_menu_selector = (By.XPATH, "// div[ @ id = 'inventory_filter_container'] / select")
+        self.sort_menu_selector = (By.XPATH, "// div[ @ id = 'inventory_filter_container'] / select")
 
     def open(self):
         self.driver.get(self.url)
@@ -23,7 +23,7 @@ class ProductPage:
 
     def click_product_sort_menu(self):
         sort_menu_element = WebDriverWait(self.driver, 10).until(
-            ec.presence_of_element_located((By.XPATH, "// div[ @ id = 'inventory_filter_container'] / select")))
+            ec.presence_of_element_located(*self.sort_menu_selector))
         sort_menu_element.click()
 
     def get_list_of_product_names(self):
