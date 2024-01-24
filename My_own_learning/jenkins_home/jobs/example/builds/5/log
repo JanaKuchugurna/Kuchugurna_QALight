@@ -1,0 +1,46 @@
+Started by user [8mha:////4ESz18vE9HKRbF9rYIBVa9OvYJszPHWscl+gCdQ+MF1mAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/example
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/JanaKuchugurna/Kuchugurna_QALight.git
+ > git init /var/jenkins_home/workspace/example # timeout=10
+Fetching upstream changes from https://github.com/JanaKuchugurna/Kuchugurna_QALight.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/JanaKuchugurna/Kuchugurna_QALight.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/JanaKuchugurna/Kuchugurna_QALight.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 54aee291b95a6ca201e27e61471b59f59db6000f (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 54aee291b95a6ca201e27e61471b59f59db6000f # timeout=10
+Commit message: "Rozetka"
+ > git rev-list --no-walk 54aee291b95a6ca201e27e61471b59f59db6000f # timeout=10
+[example] $ /bin/sh -xe /tmp/jenkins14297515613091553128.sh
++ docker -v
+Docker version 20.10.24+dfsg1, build 297e128
+[example] $ /bin/sh -xe /tmp/jenkins10127861926195827281.sh
++ ls /var/jenkins_home/workspace/example
+ApiTest
+HW6_test_login_page
+HW7_radio_buttons
+HW8_check_boxes
+Homeworks1-4
+My_own_learning
+__init__.py
+__pycache__
+base_page.py
+conftest.py
+lecture_exceptions
+lecture_pytest
+lecture_selenium
+lecture_waiters_buttons
+lecture_work_with_files
+newProject
+test.txt
+tests
+виключення.py
+Finished: SUCCESS

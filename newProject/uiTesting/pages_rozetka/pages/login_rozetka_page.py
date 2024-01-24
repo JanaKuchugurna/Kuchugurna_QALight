@@ -31,6 +31,6 @@ class LoginPage:
     def click_button_submit(self):
         self.driver.find_element(*self.button_submit).click()
 
-    @pytest.mark.slow
+
     def get_logged_in_username(self):
         return self.driver.find_element(*self.logged_in_username).text

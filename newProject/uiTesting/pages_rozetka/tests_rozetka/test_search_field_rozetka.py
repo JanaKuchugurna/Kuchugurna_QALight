@@ -1,6 +1,9 @@
-from rozetka.pages_rozetka.pages.search_field_page import ProductSearchPage
+import pytest
+
+from newProject.uiTesting.pages_rozetka.pages.search_field_page import ProductSearchPage
 
 
+@pytest.mark.smoke()
 def test_product_search(driver):
     search_page = ProductSearchPage(driver)
     search_page.open()

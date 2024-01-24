@@ -1,9 +1,5 @@
 import pytest
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-from Rozetka.pages_rozetka.pages.login_rozetka_page import LoginPage
+from newProject.uiTesting.pages_rozetka.pages.login_rozetka_page import LoginPage
 
 
 @pytest.mark.smoke()

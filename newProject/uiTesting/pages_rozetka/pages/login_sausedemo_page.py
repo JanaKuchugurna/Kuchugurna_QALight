@@ -3,9 +3,7 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPage1:
-
     def __init__(self, driver):
-
         self.driver = driver
         self.url = "https://www.saucedemo.com/v1/index.html"
         # self.login_icon = (By.XPATH, "//rz-user[contains(@class,'component')]")
@@ -16,7 +14,6 @@ class LoginPage1:
     def open(self):
         self.driver.get(self.url)
 
-    @pytest.mark.slow
     def login(self, user_name, password):
         self.driver.find_element(*self.user_name_field).send_keys(user_name)
         self.driver.find_element(*self.password_field).send_keys(password)

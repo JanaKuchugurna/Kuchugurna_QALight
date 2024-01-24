@@ -1,7 +1,7 @@
 import pytest
 
-from rozetka.pages_rozetka.pages.login_sausedemo_page import LoginPage1
-from rozetka.pages_rozetka.pages.product_itemes_page_sausedemo import ProductPage
+from newProject.uiTesting.pages_rozetka.pages.login_sausedemo_page import LoginPage1
+from newProject.uiTesting.pages_rozetka.pages.product_itemes_page_sausedemo import ProductPage
 
 
 @pytest.mark.smoke()

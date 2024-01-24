@@ -1,0 +1,22 @@
+Started by user [8mha:////4ESz18vE9HKRbF9rYIBVa9OvYJszPHWscl+gCdQ+MF1mAAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/super simle example
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/super simle example/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/JanaKuchugurna/Kuchugurna_QALight.git # timeout=10
+Fetching upstream changes from https://github.com/JanaKuchugurna/Kuchugurna_QALight.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/JanaKuchugurna/Kuchugurna_QALight.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 54aee291b95a6ca201e27e61471b59f59db6000f (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 54aee291b95a6ca201e27e61471b59f59db6000f # timeout=10
+Commit message: "Rozetka"
+ > git rev-list --no-walk 54aee291b95a6ca201e27e61471b59f59db6000f # timeout=10
+[super simle example] $ /bin/sh -xe /tmp/jenkins3226911968679132134.sh
++ docker -v
+Docker version 20.10.24+dfsg1, build 297e128
+Finished: SUCCESS
